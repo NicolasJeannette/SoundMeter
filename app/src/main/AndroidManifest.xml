@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.github.avianey.soundmeter">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+
     <application
         android:name=".SoundMeterApplication"
         android:allowBackup="true"
@@ -17,6 +23,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".SoundMeterSettings"/>
+
+        <provider
+            android:authorities="soundmeter"
+            android:name=".SoundMeterContentProvider"/>
+
+        <service android:name=".LocationService" />
 
     </application>
 
